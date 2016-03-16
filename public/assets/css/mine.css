@@ -1,0 +1,230 @@
+*{
+	outline: none;
+}
+body{
+	background: url(../images/brickwall_@2X.png) repeat;
+}
+body.container{
+	margin: 0;
+	overflow-y:scroll; 
+}
+div.black-top{
+	height:11px;
+	background: #333;
+	border-bottom:1px solid #222; 
+}
+div.container{
+	max-width:1000px;
+	margin: 3px auto;
+	font-family: Candara;
+	font-size: 12pt;
+}
+div.main-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: Candara;
+}
+div.copasin-logo{
+	height: 50px;
+}
+div.main-menu ul li{
+	margin-right: 4px;
+	display: inline;
+}
+div.main-menu ul li a{
+	text-decoration: none;
+	color:#333;
+	font-family: Candara;
+	font-size: 13pt;
+}
+div.main-menu ul li a:hover{
+	border-bottom: 1px solid #333;
+}
+div.main-menu ul li.right-menu{
+	float: right;
+}
+
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
+	content: '';
+	z-index: -2;
+	display: none !important;
+	position: absolute;
+	bottom: 0.75em;
+	left: 0.18em;
+	width: 40%;
+	height: 20%;
+	-webkit-box-shadow: 0px 13px 8px #979797;
+	-moz-box-shadow: 0px 13px 8px #979797;
+	box-shadow: 0px 13px 8px #979797;
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+	-ms-transform: rotate(-2deg);
+	-o-transform: rotate(-2deg);
+	transform: rotate(-2deg);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	max-height: none !important;
+	overflow-y:hidden !important;
+	font-size: 11pt !important;
+	/*padding-top: 0px !important;
+	line-height: 1 !important;*/
+}
+
+textarea {
+	font-size: 11pt;
+  width: 100%;
+  height: 200px;
+  border: 0px;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: monospace;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+  overflow: hidden;
+}
+
+textarea#copylagi{
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+	overflow-y:scroll; 
+	font-size: 11pt;
+  width: 99%;
+  height: 200px;
+  border: 0px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: monospace;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+  overflow-y: scroll;
+}
+
+textarea:focus {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
+    outline-width: 0;
+}
+select,input{
+	cursor:pointer;
+	font-family: Candara;
+}
+select{
+	font-size: 12pt;
+	width: 250px;
+	border-radius: 0px;
+	text-decoration: none;
+	padding: 5px;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border: 0px;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.12) inset;
+	color: #555555;
+	transition: background-color 0.2s ease 0s;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+   appearance:none;
+}
+input{
+	font-size: 12pt;
+	padding: 5px;
+	width: 240px;
+	border-radius: 0px;
+  border: 0px;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+	color: #555555;
+	transition: background-color 0.2s ease 0s;
+}
+.button,button{
+	font-family: Candara;
+	background: #333;
+	border: 1px solid #333;
+	padding: 6px;
+	font-size: 12pt;
+	padding-top: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+	cursor: pointer;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	color: #eee;
+	transition: background-color 0.2s ease 0s;
+}
+td.text-center{
+	text-align: center;
+}
+table.table{
+	width: 100%;
+ color: #333;
+ border-collapse: 
+ collapse; border-spacing: 0; 
+}
+ 
+table.table td,table.table th {  
+ border: 1px solid transparent; /* No more visible border */
+ transition: all 0.3s;  /* Simple transition for hover effect */
+}
+ 
+table.table th {
+ background: #DFDFDF;  /* Darken header a bit */
+ padding: 5px;
+ font-weight: bold;
+}
+ 
+table.table td {
+	padding: 5px;
+ background: #FAFAFA;
+}
+
+/* Cells in even rows (2,4,6...) are one color */ 
+table.table tr:nth-child(even) td { background: #F1F1F1; }   
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */ 
+table.table tr:nth-child(odd) td { background: #FEFEFE; }  
+
+.footer{
+	text-align: center;
+	margin-top: 10px;
+}
+.place-right{
+	float: right;
+}
+p{
+	font-size: 14pt;
+}
+
+@media only screen and (max-width: 800px){
+	textarea{
+		width: 94%;
+		height: 130px;
+	}
+	div.container{
+		padding: 5px;
+	}
+	input,select{
+		width: 100%;
+	}
+	input{
+		width:95%;
+	}
+	div.main-menu ul li{
+		display: block;
+	}
+	.no-phone{
+		display: none;
+	}
+	textarea#copylagi{
+	  width: 95%;
+	}
+	p,input,select,div.container{
+		font-size: 10pt;
+	}
+
+}

@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
+RewriteRule .* ? [F,L]
+RewriteCond %{HTTP_HOST} ^www\.copasin\.com$
+RewriteRule ^/?$ "http\:\/\/copasin\.com\/" [R=301,L]
+
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
