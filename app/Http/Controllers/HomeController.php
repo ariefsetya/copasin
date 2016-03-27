@@ -214,7 +214,7 @@ class HomeController extends Controller {
 	}
 	public function copasan()
 	{
-		$data = \App\Copas::where('jenis',0)->orderBy('id','desc')->paginate(20);
+		$data = \App\Copas::where('jenis',0)->where('spam',0)->orderBy('id','desc')->paginate(20);
 		return view('copasan_publik')->with(['data'=>$data,
 			'func'=>new HomeController]);
 	}
