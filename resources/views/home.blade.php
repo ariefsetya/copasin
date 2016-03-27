@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('header')
-	    <meta property="og:url" content="http://copasin.com/" />
+	    <meta property="og:url" content="{{url()}}" />
 	    <meta name="description" content="Copasin aja kemari kodingan kamu yang error :D abis itu baru posting di fb">
 	    <title>Buat Baru &raquo; Copas Aja Disini</title>
 @endsection
@@ -51,8 +51,14 @@
 @section('footer')
     <script src="{{url('assets/ace-builds-master/src/ace.js')}}"></script>
     <script>    
-	$("#form_post").prepend('<textarea id="copas" name="isi" required style="display:none;"></textarea>');
-    
+	$("#form_post").prepend('<textarea id="copas" name="isi" style="display:none;"></textarea>');
+    $("#form_post").on('submit',function () {
+    	//alert($("#isi").val());
+    	if($("textarea[name=isi]").val()==""){
+    		alert('Kamu belum mengisi apapun di textarea :D');
+    		return false;
+    	}
+    });
     var editor1 = ace.edit("editor");
 //    editor1.setTheme("ace/theme/ace");
     editor1.setShowPrintMargin(false);

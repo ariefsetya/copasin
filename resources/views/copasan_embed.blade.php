@@ -4,9 +4,9 @@
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	    <meta name="product" content="copasin.com">
-	    <meta name="description" content="Gratis koq, nda bayar buat kamu yang copas kodingan buat nanya error ^_^">
-	    <meta name="author" content="copasin.com">
-	    <meta name="keywords" content="copas aja disini, copas, copy paste, copy, paste, copasser">
+	    <meta name="description" content="Copasin aja kemari kodingan kamu yang error :D abis itu baru posting di fb">
+	    <meta name="author" content="{{url()}}">
+	    <meta name="keywords" content="copas aja disini, copas, copy paste, copy, paste, copasser, error code">
 
 	    <link href="<?php echo url('assets/css/mine.css');?>" rel="stylesheet">
 	    <title>{{$data->judul}}</title>

@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('header')
-	<meta property="og:url" content="http://copasin.com/<?php echo $data->hash;?>" />
+	<meta property="og:url" content="<?php echo url($data->hash);?>" />
 	<meta property="og:site_name" content="<?php echo $data->judul;?>" />
 	<meta property="og:title" content="<?php echo $data->judul;?>" />
 	<meta name="og:description" content="<?php echo substr(strip_tags($data->isi),0,200);?>">
@@ -11,7 +11,7 @@
 
 @section('content')
 <h1><?php echo $data->judul;?></h1>
-<span><?php echo "oleh ".($user)." / tanggal ".date_format(date_create($data->created_at),"d F Y")." / jam ".date_format(date_create($data->created_at),"H:i:s")." / syntax ".$lang->name." / kadaluarsa ".$exp." / <a href='".url("embed/".$data->hash)."'>embed</a> / <a href='".url("lapor/".$data->hash)."'>lapor spam</a>";?></span>
+<span><?php echo "oleh ".($user)." / tanggal ".date_format(date_create($data->created_at),"d F Y")." / jam ".date_format(date_create($data->created_at),"H:i:s")." / syntax ".$lang->name." / kadaluarsa ".$exp." / <a href='".url("embed/".$data->hash)."'>embed</a>";?>@if(Auth::check()) @if(\App\Copas::where('hash',$data->hash)->first()['idpengguna']==Auth::user()->id) / <a href="{{url($data->hash.'/edit')}}">edit</a> @endif @endif <?php echo" / <a href='".url("lapor/".$data->hash)."'>lapor spam</a>";?></span>
 <div id="editor">{{$data->isi}}</div>
 <h1>RAW copasan</h1>
 <textarea id="copylagi"><?php echo $data->isi;?></textarea>

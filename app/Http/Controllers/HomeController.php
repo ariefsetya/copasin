@@ -83,6 +83,32 @@ class HomeController extends Controller {
 		}
 
 
+	}	
+	public function hash_edit($hash)
+	{
+	if(Auth::check()){
+		$data = \App\Copas::where('hash',$hash)->where('idpengguna',Auth::user()->id)->first();
+
+		if(!empty($data)){
+
+			if($this->check_exp($data->created_at,$data->expires)){
+				return redirect(url());
+			}
+
+			return view('copasan_edit')->with(['data'=>$data,
+				'user'=>$this->get_user($data->idpengguna),
+				'lang'=>$data->lang,
+				'exp'=>$data->expires,
+				'syntax'=>\App\Syntax::all(),
+				'expires'=>\App\Expires::all()]);
+		}else{
+			return redirect(url());
+		}
+	}else{
+			return redirect(url());
+	}
+
+
 	}
 	public function embed($hash)
 	{
@@ -144,6 +170,27 @@ class HomeController extends Controller {
 		$data->hash = $uid;
 		$data->save();
 		return redirect(url($uid));
+		}
+	}
+	public function update()
+	{
+		$uid = \App\Copas::where('id',Input::get('id'))->where('idpengguna',Auth::user()->id)->first()['hash'];
+		if($uid==""){
+			if(trim(Input::get('isi'))==""){
+				return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
+			}else{
+				$data = \App\Copas::find(Input::get('id'));
+				$data->judul = (trim(Input::get('judul'))!="")?htmlentities(Input::get('judul')):"Tanpa Judul";
+				$data->isi = htmlentities(Input::get('isi'));
+				$data->lang = \App\Syntax::where('kode',Input::get('lang'))->first()['id'];
+				$data->expires = Input::get('expires');
+				$data->jenis = Input::get('jenis');
+				$data->spam = 0;
+				$data->save();
+				return redirect(url($uid));
+			}
+		}else{
+			return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
 		}
 	}
 
