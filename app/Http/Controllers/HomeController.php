@@ -175,7 +175,7 @@ class HomeController extends Controller {
 	public function update()
 	{
 		$uid = \App\Copas::where('id',Input::get('id'))->where('idpengguna',Auth::user()->id)->first()['hash'];
-		if($uid==""){
+		if($uid!=""){
 			if(trim(Input::get('isi'))==""){
 				return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
 			}else{
