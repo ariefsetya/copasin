@@ -190,7 +190,7 @@ class HomeController extends Controller {
 				return redirect(url($uid));
 			}
 		}else{
-			return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
+			return redirect(url($uid));
 		}
 	}
 
