@@ -11,7 +11,7 @@
 	<h1>Widget</h1>
 	<p>Ayo pasang widget copasin.com di blog kamu, bantu teman kamu buat copas kodingan yang error ^_^</p>
 	<h2>Iframe Widget</h2>
-	<div id="editor">&lt;iframe src="http://copasin.com/widgz" style="height:350px"&gt;&lt;/iframe&gt;</div>
+	<div id="editor">&lt;iframe src="http://copasin.id/widgz" style="height:350px"&gt;&lt;/iframe&gt;</div>
 @endsection
 
 @section('footer')
