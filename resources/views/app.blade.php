@@ -3,13 +3,13 @@
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	    <meta name="product" content="copasin.com">
-	    <meta name="author" content="copasin.com">
+	    <meta name="product" content="{{url()}}">
+	    <meta name="author" content="{{url()}}">
 	    <meta name="keywords" content="copas aja disini, copas, copy paste, copy, paste, copasser">
 	    <meta property="og:type" content="article" />
-	    <meta property="og:image" content="http://copasin.com/assets/images/ogimage.png" />
-	    <meta property="article:publisher" content="https://www.facebook.com/copasindotcom" />
-	    <meta property="article:author" content="https://www.facebook.com/copasindotcom" />
+	    <meta property="og:image" content="{{url('assets/images/ogimage.png')}}" />
+	    <meta property="article:publisher" content="https://www.facebook.com/copasin.id" />
+	    <meta property="article:author" content="https://www.facebook.com/copasin.id" />
 	    <link rel="publisher" href="https://plus.google.com/+Copasinajadisini/"/>
 
 	    <link href="{{url('assets/images/icon.png')}}" rel="shortcut icon">
@@ -47,7 +47,7 @@
             </ul>
         </div>
        @yield('content')
-        <div class="footer">Copyright &copy; 2015 copasin.com</div>
+        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{url()}}</div>
     </div>
     </body>
     <script src="{{url('assets/js/jquery/jquery.min.js')}}"></script>

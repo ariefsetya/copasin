@@ -3,8 +3,8 @@
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	    <meta name="product" content="copasin.com">
-	    <meta name="author" content="copasin.com">
+	    <meta name="product" content="{{url()}}">
+	    <meta name="author" content="{{url()}}">
 	    <meta name="keywords" content="copas aja disini, copas, copy paste, copy, paste, copasser">
 	    <link href="{{url('assets/images/icon.png')}}" rel="shortcut icon">
 	    <link href="{{url('assets/images/icon.png')}}" rel="favicon">
@@ -52,7 +52,7 @@
                 </tr>
             </table>
         </form>
-        <div class="footer">Copyright &copy; 2015 copasin.com</div>
+        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{url()}}</div>
     </div>
     </body>
     <script src="{{url('assets/js/jquery/jquery.min.js')}}"></script>
