@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<h1><?php echo $data->judul;?></h1>
+<h1 class="wordw-div"><?php echo $data->judul;?></h1>
 <span><?php echo "oleh ".($user)." / tanggal ".date_format(date_create($data->created_at),"d F Y")." / jam ".date_format(date_create($data->created_at),"H:i:s")." / syntax ".$lang->name." / kadaluarsa ".$exp." / <a href='".url("embed/".$data->hash)."'>embed</a>";?>@if(Auth::check()) @if(\App\Copas::where('hash',$data->hash)->first()['idpengguna']==Auth::user()->id) / <a href="{{url($data->hash.'/edit')}}">edit</a> @endif @endif <?php echo" / <a href='".url("lapor/".$data->hash)."'>lapor spam</a>";?></span>
 <div id="editor">{{$data->isi}}</div>
 <h1>RAW copasan</h1>

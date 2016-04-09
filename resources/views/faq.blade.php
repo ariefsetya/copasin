@@ -11,7 +11,7 @@
 	<td><strong>Apakah layanan ini gratis?</strong></td>
 	</tr>
 	<tr>
-	<td>Yoi, untuk catatan umum kita tidak mengkomersilkan karena tujuan kami untuk berbagi. Tapi tetap, kalau mau nambah kapasitas catatan pribadi ya tetap kita akan kenakan biaya sesuai dompet :D</td>
+	<td>Yoi, karena tujuan kita untuk berbagi. Sampai kapanpun, akan tetap gratis.</td>
 	</tr>
 	
 	<tr>
@@ -32,7 +32,7 @@
 	<td><strong>Gimana sih cara copasnya?</strong></td>
 	</tr>
 	<tr>
-	<td>Kita cukup copy source code yang ada di IDE / Text Editor, kemudian pastekan ke kolom area yang disediakan. kemudian pilih bahasa pemrograman, kadaluarsa script, dan judul (ngga diisi juga gapapa sih) kemudian simpan deh</td>
+	<td>Kita cukup copy source code yang ada di IDE / Text Editor, kemudian pastekan ke kolom area yang disediakan. kemudian pilih bahasa pemrograman, kadaluarsa script, dan judul (ngga diisi juga gapapa sih) kemudian klik simpan deh</td>
 	</tr>
 
 	<tr>

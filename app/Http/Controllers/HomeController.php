@@ -175,7 +175,7 @@ class HomeController extends Controller {
 	public function update()
 	{
 		$uid = \App\Copas::where('id',Input::get('id'))->where('idpengguna',Auth::user()->id)->first()['hash'];
-		if($uid==""){
+		if($uid!=""){
 			if(trim(Input::get('isi'))==""){
 				return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
 			}else{
@@ -190,7 +190,7 @@ class HomeController extends Controller {
 				return redirect(url($uid));
 			}
 		}else{
-			return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
+			return redirect(url($uid));
 		}
 	}
 
@@ -214,7 +214,7 @@ class HomeController extends Controller {
 	}
 	public function copasan()
 	{
-		$data = \App\Copas::where('jenis',0)->orderBy('id','desc')->paginate(20);
+		$data = \App\Copas::where('jenis',0)->where('spam',0)->orderBy('id','desc')->paginate(20);
 		return view('copasan_publik')->with(['data'=>$data,
 			'func'=>new HomeController]);
 	}

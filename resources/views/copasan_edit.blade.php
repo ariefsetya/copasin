@@ -11,7 +11,7 @@
 
 @section('content')
 <form id="form_post" method="POST" action="{{url('updatecops')}}">
-<h1>Edit Copasan "<?php echo $data->judul;?>"</h1>
+<h1 class="wordw-div">Edit Copasan "<?php echo $data->judul;?>"</h1>
 <div id="editor">{{$data->isi}}</div>
 <br>
 <table>

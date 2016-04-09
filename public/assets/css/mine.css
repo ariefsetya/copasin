@@ -199,6 +199,34 @@ table.table tr:nth-child(odd) td { background: #FEFEFE; }
 p{
 	font-size: 14pt;
 }
+.pagination{display:inline-block;padding:0;margin:0}
+.pagination li{display:inline}
+.pagination li a{text-decoration:none;color:#000;float:left;padding:8px 16px;-webkit-transition:all 0.3s ease,color 0.15s ease;transition:all 0.3s ease,color 0.15s ease;}
+.pagination li a:hover,.pagination li a:focus{background-color:#ccc}
+.wordw-td{
+	white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+	white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	white-space: pre-wrap;       /* css-3 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	word-break: break-all;
+	white-space: normal;
+	max-width: 100px;
+}
+
+.wordw-div{
+	white-space: -moz-pre-wrap !important;
+    white-space: -webkit-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    max-width: 100%;
+}
+
 
 @media only screen and (max-width: 800px){
 	textarea{
