@@ -16,7 +16,7 @@
 		<h1>{{$data->judul}}</h1>
 		<p>URL : <a target="_blank" href="{{url($data->hash)}}">{{url($data->hash)}}</a></p>
 		<p><a href="{{url('widgz')}}">buat baru</a> - <a target="_blank" href="{{url()}}">ke {{url()}}</a></p>
-        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{str_replace(url(),"http://","")}}</div>
+        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{str_replace("http://",url())}}</div>
     </div>
     </body>
     <script src="{{url('assets/js/jquery/jquery.min.js')}}"></script>
