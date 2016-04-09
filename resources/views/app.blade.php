@@ -47,7 +47,7 @@
             </ul>
         </div>
        @yield('content')
-        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{url()}}</div>
+        <div class="footer">Copyright &copy; 2015 - {{date("Y")}} {{str_replace(url(),"http://","")}}</div>
     </div>
     </body>
     <script src="{{url('assets/js/jquery/jquery.min.js')}}"></script>
