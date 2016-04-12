@@ -17,14 +17,13 @@
 	</thead>
 	<tbody>
 	<?php
-		$i = 1;
+		$i = 1+(($data->currentPage()-1)*$data->count());
 		foreach ($data as $key) {
-		if(!$func->kadal($key->created_at,$key->expires)){
 		?>
 		<tr>
 			<td class="text-center"><?php echo $i.".";?></td>
 			<td class="wordw-td"><a href="<?php echo url($key->hash);?>"><?php echo $key->judul;?></a></td>
-			<td class="text-center"><?php echo $func->get_lang($key->lang)['name'];?></td>
+			<td class="text-center"><?php echo \App\Syntax::find($key->lang)['name'];?></td>
 			<td class="text-center no-phone"><?php echo date_format(date_create($key->created_at),"D, d M Y H:i:s");?></td>
 			<td class="text-center no-phone" colspan="2"><a href="{{url($key->hash.'/edit')}}">Ubah</a></td>
 			<!-- <td class="text-center no-phone"><a onclick="return confirm('Apakah yakin ingin dihapus untuk copasan \'{{$key->judul}}\'?')" href="<?php echo url($key->hash.'/delete');?>">Hapus</a></td> -->
@@ -32,10 +31,10 @@
 		<?php
 		$i++;
 		}
-		}
 	?></tbody>
 	</table>
-	{!!$data->render()!!}
+	<div style="display: block;clear: both;">{!!$data->render()!!}</div>
+
 
 
 @endsection

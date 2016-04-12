@@ -132,7 +132,8 @@ class HomeController extends Controller {
 	}
 	public function lapor($hash)
 	{
-		$data = \App\Copas::where('hash',$hash)->first();
+	$data = \App\Copas::where('hash',$hash)->first();
+	if(Auth::check()){
 
 		if(!empty($data)){
 
@@ -142,6 +143,7 @@ class HomeController extends Controller {
 			}
 
 			$data->spam = 1;
+			$data->spam_fix = 1;
 			$data->save();
 
 			return view('copasan_lapor')->with(['data'=>$data,
@@ -151,7 +153,16 @@ class HomeController extends Controller {
 		}else{
 			return redirect(url());
 		}
+	}else{
 
+			$data->spam = 1;
+			$data->save();
+
+		return view('copasan_lapor')->with(['data'=>$data,
+			'user'=>$this->get_user($data->idpengguna),
+			'lang'=>$this->get_lang($data->lang),
+			'exp'=>$this->get_exp($data->expires)]);
+	}
 
 	}
 	public function save()
@@ -186,6 +197,7 @@ class HomeController extends Controller {
 				$data->expires = Input::get('expires');
 				$data->jenis = Input::get('jenis');
 				$data->spam = 0;
+				$data->spam_fix = 0;
 				$data->save();
 				return redirect(url($uid));
 			}
@@ -214,15 +226,31 @@ class HomeController extends Controller {
 	}
 	public function copasan()
 	{
-		$data = \App\Copas::where('jenis',0)->where('spam',0)->orderBy('id','desc')->paginate(20);
-		return view('copasan_publik')->with(['data'=>$data,
-			'func'=>new HomeController]);
+		$data = \App\Copas::whereRaw("COALESCE(CASE SUBSTRING_INDEX(expires, ' ', -1)
+			WHEN 'minute' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) MINUTE)
+			WHEN 'hour' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) HOUR)
+			WHEN 'day' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) DAY)
+			WHEN 'week' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) WEEK)
+			WHEN 'month' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) MONTH)
+			WHEN 'year' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) YEAR)
+			ELSE NULL END > NOW(),1)=1")->where('jenis',0)->where('spam_fix',0)->orderBy('id','desc')->paginate(20);
+		//	echo "<pre>".print_r($data,1)."</pre>";
+			
+
+		return view('copasan_publik')->with(['data'=>$data]);
 	}
 	public function copasanku()
 	{
-		$data = \App\Copas::where('idpengguna',Auth::user()->id)->orderBy('id','desc')->paginate(20);
-		return view('copasanku')->with(['data'=>$data,
-			'func'=>new HomeController]);
+		$data = \App\Copas::whereRaw("COALESCE(CASE SUBSTRING_INDEX(expires, ' ', -1)
+			WHEN 'minute' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) MINUTE)
+			WHEN 'day' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) DAY)
+			WHEN 'hour' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) HOUR)
+			WHEN 'week' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) WEEK)
+			WHEN 'month' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) MONTH)
+			WHEN 'year' THEN DATE_ADD((created_at), INTERVAL SUBSTRING_INDEX(expires, ' ', 1) YEAR)
+			ELSE NULL END > NOW(),1)=1")->where('idpengguna',Auth::user()->id)->orderBy('id','desc')->paginate(20);
+			//echo "<pre>".print_r($data,1)."</pre>";
+		return view('copasanku')->with(['data'=>$data]);
 	}
 
 	public function faq()

@@ -18,20 +18,17 @@
 	<?php
 		$i = 1;
 		foreach ($data as $key) {
-		if(!$func->kadal($key->created_at,$key->expires)){
 		?>
-		<tr title="{{$key->spam==1?"Dilaporkan sebagai spam":""}}">
-			<td class="text-center" style="{{$key->spam==1?"background:red !important":""}}"><?php echo $i.".";?></td>
-			<td class="wordw-td" style="{{$key->spam==1?"background:red !important":""}}">@if($key->spam==0) <a href="<?php echo url($key->hash);?>"> @endif {!!$key->spam==1?"<s>":""!!}<?php if($key->spam==1){echo substr($key->judul,0,strlen($key->judul)-2)."xx";}else{echo $key->judul;}?>{!!$key->spam==1?"</s>":""!!} @if($key->spam==0)</a>@endif</td>
-			<td style="{{$key->spam==1?"background:red !important":""}}" class="text-center"><?php echo $func->get_lang($key->lang)['name'];?></td>
-			<td style="{{$key->spam==1?"background:red !important":""}}" class="text-center no-phone"><?php echo date_format(date_create($key->created_at),"D, d M Y H:i:s");?></td>
+		<tr>
+			<td class="text-center"><?php echo $i.".";?></td>
+			<td class="wordw-td"><a href="<?php echo url($key->hash);?>"><?php echo $key->judul;?></a></td>
+			<td class="text-center"><?php echo \App\Syntax::find($key->lang)['name'];?></td>
+			<td class="text-center no-phone"><?php echo date_format(date_create($key->created_at),"D, d M Y H:i:s");?></td>
 		</tr>
 		<?php
 		$i++;
 		}
-		}
 	?></tbody>
 	</table>
-
 
 @endsection
