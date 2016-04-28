@@ -6,7 +6,7 @@
 	    <meta name="product" content="{{url()}}">
 	    <meta name="author" content="{{url()}}">
         <meta name="keywords" content="copas aja disini, copas, copy paste, copy, paste, copasser">
-	    <meta name="theme-color" content="#333">
+	    <meta name="theme-color" content="#3b3b33">
 	    <meta property="og:type" content="article" />
 	    <meta property="og:image" content="{{url('assets/images/ogimage.png')}}" />
 	    <meta property="article:publisher" content="https://www.facebook.com/copasin.id" />
