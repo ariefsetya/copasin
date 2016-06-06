@@ -42,6 +42,7 @@ Route::get('/c/masuk', function (){return redirect(url('masuk'));});
 
 Route::post('/savecops', 'HomeController@save');
 Route::post('/updatecops', 'HomeController@update');
+Route::post('/delcops', 'HomeController@hapus');
 
 Route::get('/widget', 'HomeController@widget');
 
@@ -50,6 +51,7 @@ Route::post('/widgz', 'HomeController@widgzsave');
 
 Route::get('/{hash}', 'HomeController@hash');
 Route::get('/{hash}/edit', 'HomeController@hash_edit');
+Route::get('/{hash}/hapus', 'HomeController@hash_hapus');
 Route::get('/c/h/{hash}', function ($hash){return redirect(url($hash));});
 
 Route::post('vauth/login',function ()

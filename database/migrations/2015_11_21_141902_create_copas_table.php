@@ -19,6 +19,7 @@ class CreateCopasTable extends Migration {
 			$table->integer('lang');
 			$table->integer('jenis');
 			$table->integer('spam');
+			$table->integer('spam_fix');
 			$table->string('hash');
 			$table->string('judul');
 			$table->longtext('isi');

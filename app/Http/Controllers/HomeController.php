@@ -109,6 +109,32 @@ class HomeController extends Controller {
 	}
 
 
+	}	
+	public function hash_hapus($hash)
+	{
+	if(Auth::check()){
+		$data = \App\Copas::where('hash',$hash)->where('idpengguna',Auth::user()->id)->first();
+
+		if(!empty($data)){
+
+			if($this->check_exp($data->created_at,$data->expires)){
+				return redirect(url());
+			}
+
+			return view('copasan_hapus')->with(['data'=>$data,
+				'user'=>$this->get_user($data->idpengguna),
+				'lang'=>$data->lang,
+				'exp'=>$data->expires,
+				'syntax'=>\App\Syntax::all(),
+				'expires'=>\App\Expires::all()]);
+		}else{
+			return redirect(url());
+		}
+	}else{
+			return redirect(url());
+	}
+
+
 	}
 	public function embed($hash)
 	{
@@ -200,6 +226,25 @@ class HomeController extends Controller {
 				$data->spam_fix = 0;
 				$data->save();
 				return redirect(url($uid));
+			}
+		}else{
+			return redirect(url($uid));
+		}
+	}
+	public function hapus()
+	{
+		$uid = \App\Copas::where('id',Input::get('id'))->where('idpengguna',Auth::user()->id)->first()['hash'];
+		if($uid!=""){
+			if(trim(Input::get('isi'))==""){
+				return redirect(url(\App\Copas::find(Input::get('id')['hash'])));
+			}else{
+				if(Input::get('judul_'.Input::get('_token'))==Input::get('judul')){
+					$data = \App\Copas::find(Input::get('id'));
+					$data->delete();
+					return redirect(url('copasanku'));
+				}else{
+					return redirect(url($uid));
+				}
 			}
 		}else{
 			return redirect(url($uid));

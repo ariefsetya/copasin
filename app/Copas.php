@@ -1,11 +1,12 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Copas extends Model {
 
 	//
+	use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 

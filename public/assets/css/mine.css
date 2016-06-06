@@ -259,3 +259,6 @@ p{
 	}
 
 }
+button[disabled=disabled]{
+	background: grey;
+}

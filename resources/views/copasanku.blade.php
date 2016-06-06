@@ -25,11 +25,18 @@
 			<td class="wordw-td"><a href="<?php echo url($key->hash);?>"><?php echo $key->judul;?></a></td>
 			<td class="text-center"><?php echo \App\Syntax::find($key->lang)['name'];?></td>
 			<td class="text-center no-phone"><?php echo date_format(date_create($key->created_at),"D, d M Y H:i:s");?></td>
-			<td class="text-center no-phone" colspan="2"><a href="{{url($key->hash.'/edit')}}">Ubah</a></td>
-			<!-- <td class="text-center no-phone"><a onclick="return confirm('Apakah yakin ingin dihapus untuk copasan \'{{$key->judul}}\'?')" href="<?php echo url($key->hash.'/delete');?>">Hapus</a></td> -->
+			<td class="text-center no-phone"><a href="{{url($key->hash.'/edit')}}">Ubah</a></td>
+			<td class="text-center no-phone"><a href="{{url($key->hash.'/hapus')}}">Hapus</a></td>
 		</tr>
 		<?php
 		$i++;
+		}
+		if(sizeof($data)==0){
+			?>
+			<tr>
+				<td colspan="6" class="text-center">No Data</td>
+			</tr>
+			<?php
 		}
 	?></tbody>
 	</table>
