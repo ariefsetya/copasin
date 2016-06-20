@@ -34,8 +34,8 @@
     <tr class="no-phone">
         <td>Publik</td>
         <td><select name="jenis" id="jenis" class="cs-select cs-skin-border">
-            <option {{$key->jenis==0?"selected":""}} value="0">Ya</option>
-            <option {{$key->jenis==1?"selected":""}} value="1">Tidak</option>
+            <option {{$data->jenis==0?"selected":""}} value="0">Ya</option>
+            <option {{$data->jenis==1?"selected":""}} value="1">Tidak</option>
         </select></td>
     </tr>
     <tr>
