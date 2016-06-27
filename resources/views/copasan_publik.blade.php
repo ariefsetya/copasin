@@ -12,7 +12,7 @@
 		<th class="nomor"></th>
 		<th>Judul</th>
 		<th class="syntax">Syntax</th>
-		<th class="no-phone" class="waktu">Waktu</th>
+		<th class="no-phone waktu">Waktu</th>
 	</thead>
 	<tbody>
 	<?php
