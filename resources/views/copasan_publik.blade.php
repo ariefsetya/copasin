@@ -9,10 +9,10 @@
 	<h1>Copasan Publik</h1>
 	<table class="table">
 	<thead>
-		<th style="width: 50px"></th>
+		<th class="nomor"></th>
 		<th>Judul</th>
-		<th style="width: 150px">Syntax</th>
-		<th class="no-phone" style="width: 240px">Waktu</th>
+		<th class="syntax">Syntax</th>
+		<th class="no-phone" class="">Waktu</th>
 	</thead>
 	<tbody>
 	<?php

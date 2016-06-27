@@ -229,6 +229,15 @@ p{
     white-space: normal;
     max-width: 100%;
 }
+.nomor{
+	width: 50px;
+}
+.syntax{
+	width: 150px;
+}
+.waktu{
+	width: 240px;
+}
 
 
 @media only screen and (max-width: 800px){
@@ -257,7 +266,9 @@ p{
 	p,input,select,div.container{
 		font-size: 10pt;
 	}
-
+	.nomor,.syntax,.waktu{
+		width: auto;
+	}
 }
 button[disabled=disabled]{
 	background: grey;
