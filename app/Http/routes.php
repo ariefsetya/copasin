@@ -28,8 +28,11 @@ Route::get('/c/faq', function (){return redirect(url('faq'));});
 Route::get('/kita', 'HomeController@kita');
 Route::get('/c/kita', function (){return redirect(url('kita'));});
 
-Route::get('/lapor/{hash}', 'HomeController@lapor');
+Route::get('/lapor/{hash}', 'HomeController@laporin');
 Route::get('/c/lapor/{hash}', function ($hash){return redirect(url('lapor/'.$hash));});
+
+Route::post('/laporcops/', 'HomeController@lapor');
+//Route::post('/c/laporcops/', function ($hash){return redirect(url('lapor/'.$hash));});
 
 Route::get('/embed/{hash}', 'HomeController@embed');
 Route::get('/c/embed/{hash}', function ($hash){return redirect(url('embed/'.$hash));});
@@ -80,6 +83,9 @@ Route::post('vauth/login',function ()
 		return redirect(url('masuk'));
 	}
 });
+
+Route::get('auth/login',function(){return redirect('masuk');});
+Route::get('auth/register',function(){return redirect('gabung');});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

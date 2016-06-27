@@ -156,8 +156,32 @@ class HomeController extends Controller {
 
 
 	}
-	public function lapor($hash)
+	public function laporin($hash){
+		if(Auth::check()){
+			$data = \App\Copas::where('hash',$hash)->first();
+
+			if(!empty($data)){
+
+				if($this->check_exp($data->created_at,$data->expires)){
+					return redirect(url());
+				}
+
+				return view('copasan_spam_lapor')->with(['data'=>$data,
+					'user'=>$this->get_user($data->idpengguna),
+					'lang'=>$data->lang,
+					'exp'=>$data->expires,
+					'syntax'=>\App\Syntax::all(),
+					'expires'=>\App\Expires::all()]);
+			}else{
+				return redirect(url());
+			}
+		}else{
+				return redirect(url('auth/login'));
+		}
+	}
+	public function lapor()
 	{
+	$hash = Input::get('hash'); 
 	$data = \App\Copas::where('hash',$hash)->first();
 	if(Auth::check()){
 
@@ -169,7 +193,9 @@ class HomeController extends Controller {
 			}
 
 			$data->spam = 1;
-			$data->spam_fix = 1;
+			if(Auth::user()->id==1){
+				$data->spam_fix = 1;
+			}
 			$data->save();
 
 			return view('copasan_lapor')->with(['data'=>$data,
