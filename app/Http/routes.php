@@ -43,7 +43,7 @@ Route::get('/c/gabung', function (){return redirect(url('gabung'));});
 Route::get('/masuk', 'HomeController@masuk');
 Route::get('/c/masuk', function (){return redirect(url('masuk'));});
 
-Route::post('/savecops', 'HomeController@save');
+Route::post('/savecopsa'.date("YmdH"), 'HomeController@save');
 Route::post('/updatecops', 'HomeController@update');
 Route::post('/delcops', 'HomeController@hapus');
 

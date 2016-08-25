@@ -8,7 +8,7 @@
 
 @section('content')
 <h1>Copas Aja Disini</h1>
-<form method="POST" action="<?php echo url("savecops");?>" id="form_post">
+<form method="POST" action="<?php echo url("savecopsa".date("YmdH"));?>" id="form_post">
 <div id="editor"></div>
 <br>
 <table>
