@@ -220,7 +220,7 @@ class HomeController extends Controller {
 	public function save()
 	{
 		$uid = uniqid('');
-		if(trim(Input::get('isi'))==""){
+		if(trim(Input::get('isijak'))==""){
 			return redirect(url());
 		}else{
 		$data = new \App\Copas;
