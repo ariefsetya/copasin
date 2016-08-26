@@ -51,10 +51,10 @@
 @section('footer')
     <script src="{{url('assets/ace-builds-master/src/ace.js')}}"></script>
     <script>    
-	$("#form_post").prepend('<textarea id="copas" name="isi" style="display:none;"></textarea>');
+	$("#form_post").prepend('<textarea id="copas" name="isijak" style="display:none;"></textarea>');
     $("#form_post").on('submit',function () {
     	//alert($("#isi").val());
-    	if($("textarea[name=isi]").val()==""){
+    	if($("textarea[name=isijak]").val()==""){
     		alert('Kamu belum mengisi apapun di textarea :D');
     		return false;
     	}
