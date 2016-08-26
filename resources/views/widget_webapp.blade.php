@@ -15,7 +15,7 @@
     <div class="container">
         <h2>Copas Aja Disini</h2>
         <form method="POST" action="<?php echo url("widgz");?>">
-            <textarea id="copas" name="isi" required style="display:none;"></textarea>
+            <textarea id="cops" name="isi" style="display:none;"></textarea>
             <div id="editor"></div>
             <table>
                 <tr>
@@ -59,6 +59,14 @@
     <script src="{{url('assets/js/mine.js')}}"></script>
     <script src="{{url('assets/ace-builds-master/src/ace.js')}}"></script>
     <script>    
+    $("#form_post").prepend('<textarea id="copas" name="isijak" style="display:none;"></textarea>');
+    $("#form_post").on('submit',function () {
+        //alert($("#isi").val());
+        if($("textarea[name=isijak]").val()==""){
+            alert('Kamu belum mengisi apapun di textarea :D');
+            return false;
+        }
+    });
     var editor1 = ace.edit("editor");
     editor1.setTheme("ace/theme/ace");
     editor1.setShowPrintMargin(false);

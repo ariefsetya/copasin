@@ -18,6 +18,14 @@
     <script src="{{url('assets/ace-builds-master/src/ace.js')}}"></script>
     <script>    
     var editor1 = ace.edit("editor");
+    $("#form_post").prepend('<textarea id="copas" name="isijak" style="display:none;"></textarea>');
+    $("#form_post").on('submit',function () {
+        //alert($("#isi").val());
+        if($("textarea[name=isijak]").val()==""){
+            alert('Kamu belum mengisi apapun di textarea :D');
+            return false;
+        }
+    });
     editor1.setTheme("ace/theme/ace");
     editor1.setShowPrintMargin(false);
     editor1.setOption("maxLines", 9999999999999999999999999);

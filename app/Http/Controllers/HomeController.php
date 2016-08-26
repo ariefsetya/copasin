@@ -354,13 +354,13 @@ class HomeController extends Controller {
 	public function widgzsave()
 	{
 		$uid = uniqid('');
-		if(trim(Input::get('isi'))==""){
+		if(trim(Input::get('isijak'))==""){
 			return redirect(url("widgz"));
 		}else{
 			$data = new \App\Copas;
 			$data->idpengguna = (Auth::check())?Auth::user()->id:0;
 			$data->judul = (trim(Input::get('judul'))!="")?htmlentities(Input::get('judul')):"Tanpa Judul";
-			$data->isi = htmlentities(Input::get('isi'));
+			$data->isi = htmlentities(Input::get('isijak'));
 			$data->lang = \App\Syntax::where('kode',Input::get('lang'))->first()['id'];
 			$data->expires = Input::get('expires');
 			$data->jenis = Input::get('jenis');
