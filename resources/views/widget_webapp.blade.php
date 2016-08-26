@@ -14,7 +14,7 @@
     <body class="container" style="overflow-y:auto;background:transparent;">
     <div class="container">
         <h2>Copas Aja Disini</h2>
-        <form method="POST" action="<?php echo url("widgz");?>">
+        <form method="POST" action="<?php echo url("widgz");?>" id="form_post">
             <textarea id="cops" name="isi" style="display:none;"></textarea>
             <div id="editor"></div>
             <table>
