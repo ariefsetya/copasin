@@ -2,8 +2,8 @@
 
 @section('header')
 	<meta property="og:url" content="<?php echo url($data->hash);?>" />
-	<meta property="og:site_name" content="<?php echo $data->judul;?>" />
-	<meta property="og:title" content="<?php echo $data->judul;?>" />
+	<meta property="og:site_name" content="<?php echo $lang->name." : ".$data->judul;?>" />
+	<meta property="og:title" content="<?php echo $lang->name." : ".$data->judul;?>" />
 	<meta name="og:description" content="<?php echo substr(strip_tags($data->isi),0,200);?>">
 	<meta name="description" content="<?php echo substr(strip_tags($data->isi),0,200);?>">
 	<title>{{$data->judul}}</title>
