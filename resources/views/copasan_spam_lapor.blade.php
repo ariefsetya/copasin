@@ -24,6 +24,7 @@
             <input type="hidden" name="_token" id="token" value="{{csrf_token()}}"></td>
             <input type="hidden" name="id" id="id" value="{{$data->id}}">
             <input type="hidden" name="hash" id="hash" value="{{$data->hash}}">
+            <input type="hidden" name="lang" id="lang" value="{{$lang->kode}}">
         </td>
     </tr>
     <tr>
@@ -57,21 +58,14 @@
     var editor1 = ace.edit("editor");
     editor1.setTheme("ace/theme/ace");
     editor1.setReadOnly(true);
-    editor1.session.setMode("ace/mode/{{\App\Syntax::find($lang)['kode']}}");
+    editor1.session.setMode("ace/mode/{{$lang->kode}}");
     editor1.setShowPrintMargin(false);
     editor1.setOption("maxLines", 9999999999999999999999999);
     editor1.setOption("minLines", 10);
     editor1.setFontSize(18);
     //editor1.focus();
     $("#copas").val(editor1.getValue());
-    editor1.on('change',function () {
-    	$("#copas").val(editor1.getValue());
-    });
     $("#judul").focus();
     $("#save").attr('disabled','disabled');
-    editor1.session.setMode("ace/mode/"+$("#lang option:selected").val());
-    $("#lang").on('change',function () {
-        editor1.session.setMode("ace/mode/"+$("#lang option:selected").val());
-    });
     </script>
 @endsection
