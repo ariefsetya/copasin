@@ -1,1 +1,0 @@
-## Copas Aja Disini ~ https://copasin.id/

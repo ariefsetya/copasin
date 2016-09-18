@@ -97,7 +97,7 @@ class HomeController extends Controller {
 
 			return view('copasan_edit')->with(['data'=>$data,
 				'user'=>$this->get_user($data->idpengguna),
-				'lang'=>$data->lang,
+				'lang'=>$this->get_lang($data->lang),
 				'exp'=>$data->expires,
 				'syntax'=>\App\Syntax::all(),
 				'expires'=>\App\Expires::all()]);
@@ -123,7 +123,7 @@ class HomeController extends Controller {
 
 			return view('copasan_hapus')->with(['data'=>$data,
 				'user'=>$this->get_user($data->idpengguna),
-				'lang'=>$data->lang,
+				'lang'=>$this->get_lang($data->lang),
 				'exp'=>$data->expires,
 				'syntax'=>\App\Syntax::all(),
 				'expires'=>\App\Expires::all()]);
@@ -168,7 +168,7 @@ class HomeController extends Controller {
 
 				return view('copasan_spam_lapor')->with(['data'=>$data,
 					'user'=>$this->get_user($data->idpengguna),
-					'lang'=>$data->lang,
+					'lang'=>$this->get_lang($data->lang),
 					'exp'=>$data->expires,
 					'syntax'=>\App\Syntax::all(),
 					'expires'=>\App\Expires::all()]);

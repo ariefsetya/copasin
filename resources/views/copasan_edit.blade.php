@@ -19,7 +19,7 @@
         <td>Syntax Highlight</td>
         <td><select id="lang" name="lang">
             @foreach($syntax as $key)
-                <option {{$key->id==$lang?"selected":""}} value="{{$key->kode}}">{{$key->name}}</option>
+                <option {{$key->id==$lang->id?"selected":""}} value="{{$key->kode}}">{{$key->name}}</option>
             @endforeach
         </select></td>
     </tr>
